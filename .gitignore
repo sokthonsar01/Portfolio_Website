@@ -1,0 +1,10 @@
+# Security
+.env
+.env.local
+
+# Dependencies
+node_modules/
+
+# Production builds
+dist/
+build/
