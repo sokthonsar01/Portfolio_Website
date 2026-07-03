@@ -1,4 +1,4 @@
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, Download } from 'lucide-react';
 import GithubIcon from '../components/icons/GithubIcon';
 import { Link } from 'react-router-dom';
 import './Home.css';
@@ -22,6 +22,10 @@ const Home = () => {
                 View My Work
                 <ArrowRight size={18} />
               </Link>
+              <a href="/CV.pdf" download="Sok_Thonsar_CV.pdf" className="btn btn-outline">
+                <Download size={18} />
+                Download CV
+              </a>
               <a href="https://github.com/sokthonsar01" target="_blank" rel="noopener noreferrer" className="btn btn-outline">
                 <GithubIcon size={18} />
                 GitHub
