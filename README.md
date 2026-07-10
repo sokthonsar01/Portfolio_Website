@@ -1,16 +1,81 @@
-# React + Vite
+# Full-Stack Personal Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+A modern, responsive, full-stack personal portfolio website built with the MERN stack (MongoDB, Express, React, Node.js). It features a dynamic project gallery, a working contact form, and a custom content management API for easy updates.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- **Dynamic Project Gallery:** Projects are loaded from a MongoDB database rather than hardcoded.
+- **Admin Dashboard (API):** Full CRUD capabilities (Create, Read, Update, Delete) to easily manage projects.
+- **Secure Contact Form:** Inquiries are validated and safely stored in the database.
+- **Modern UI/UX:** Built with a custom "Beige & Olive" color palette, featuring glassmorphism elements and full mobile responsiveness.
+- **Downloadable CV:** Easy, one-click resume download for recruiters.
 
-## React Compiler
+## Tech Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **Frontend:** React.js, Vite, Vanilla CSS
+- **Backend:** Node.js, Express.js
+- **Database:** MongoDB, Mongoose ORM
+- **Deployment:** AWS S3 (Frontend), AWS Elastic Beanstalk (Backend), MongoDB Atlas (Database)
 
-## Expanding the Oxlint configuration
+## Prerequisites
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+Before running this project locally, ensure you have the following installed:
+- [Node.js](https://nodejs.org/) (v16 or higher)
+- A [MongoDB Atlas](https://www.mongodb.com/atlas) account (or a local MongoDB server)
+
+## Environment Variables
+
+You will need to create a `.env` file in your `server` directory with the following variables:
+```env
+PORT=5001
+MONGO_URI=your_mongodb_connection_string
+NODE_ENV=development
+```
+
+For the frontend, the API URL is handled via Vite environment variables or defaults to `http://localhost:5001/api`.
+
+## Installation & Setup
+
+### 1. Clone the repository
+```bash
+git clone https://github.com/yourusername/portfolio-project.git
+cd portfolio-project
+```
+
+### 2. Backend Setup
+```bash
+cd server
+npm install
+npm run server
+```
+*The backend server should now be running on `http://localhost:5001`*
+
+### 3. Frontend Setup
+Open a new terminal window:
+```bash
+# Make sure you are in the root portfolio-project directory
+npm install
+npm run dev
+```
+*The frontend React app should now be running on `http://localhost:5173`*
+
+## API Endpoints
+
+### Projects
+- `GET /api/projects` - Get all projects
+- `GET /api/projects/:id` - Get a single project
+- `POST /api/projects` - Create a new project
+- `PUT /api/projects/:id` - Update a project
+- `DELETE /api/projects/:id` - Delete a project
+
+### Messages
+- `POST /api/messages` - Submit a new contact message
+- `GET /api/messages` - Retrieve all messages
+
+## Deployment
+
+To build the frontend for production deployment (e.g., AWS S3):
+```bash
+npm run build
+```
+This will generate a `dist` folder containing the optimized, production-ready static files.
